@@ -1,0 +1,37 @@
+<div id="post_<%= post.id %>">
+  <div class="media">
+    <%= image_tag "https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png", alt: "user", class: "mr-3", id: "post-profile" %>
+    <div class="media-body">
+      <% if current_user %>
+        <% if current_user.role == "admin" %>
+          <h5 class="mt-0"><%= link_to_unless_current post.title, course_post_path(@course, post) %></h5>
+        <% else %>
+          <h5 class="mt-0"><%= post.title %></h5>
+        <% end %>
+      <% else %>
+        <h5 class="mt-0"><%= post.title %></h5>
+      <% end %>
+      <p><%= t('posts.post.posted_by_text') %> <%= post.user_name %> - 
+        <% if post.updated_at.today? %>
+          <%= time_ago_in_words(post.updated_at) %> ago
+        <% else %>
+          <%= post.updated_at.strftime("%Y-%m-%d") %>
+        <% end %>
+      </p>
+      <p><%= post.body %></p>
+      <p>
+        <ul class="course-star">
+          <% (1..5).each do |i| %>
+            <li class="<%= 'active' if i <= post.rating %>"><i class="fa fa-star"></i></li>
+          <% end %>
+        </ul>
+      </p>
+      <% if current_user %>
+        <% if current_user.role == "admin" || current_user.id == post.user_id %>
+          <%= link_to t('posts.post.edit_link_text'), edit_course_post_path(@course, post) %> |
+          <%= link_to t('posts.post.delete_link_text'), course_post_path(@course, post), method: :delete, data: { confirm: t('posts.post.confirm_delete_message') } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

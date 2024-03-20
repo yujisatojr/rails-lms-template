@@ -1,0 +1,21 @@
+<% title t('.page_title'), false %>
+<div class="container-parent-wrapper">
+  <h2 class="display-5"><%= t('.title') %></h2>
+  <p><%= t('.subtitle') %></p>
+  <div class="divider"></div>
+  <div id="article-show-grid">
+    <div class="article-container">
+      <div class="article-new-button">
+        <% if user_signed_in? %>
+          <div class="link-button"><%= link_to t('.btn_1'), new_article_path, class: "btn-article" %></div>
+        <% else %>
+          <div class="link-button"><%= link_to t('.btn_2'), new_user_session_path, class: "btn-article" %></div>
+        <% end %>
+      </div>
+      <div>
+        <%= render @articles %>
+      </div>
+    </div>
+    <div class="animate-box article-side-bar" data-animate-effect="fadeInRight"></div>
+  </div>
+</div>

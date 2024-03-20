@@ -1,0 +1,8 @@
+<% title t('posts.new.new_post_title') %>
+<div class="bd-dashed" id="article-box">
+    <div id="article-form-box">
+        <h1><%= t('.new_post_title') %></h1>
+        <%= render "form" %>
+        <%= link_to t('posts.new.cancel_link_text'), course_posts_path(@course) %>
+    </div>
+</div>

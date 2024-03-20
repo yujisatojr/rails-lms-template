@@ -1,0 +1,22 @@
+<% title t('.page_title'), false %>
+<div class="container-parent-wrapper">
+  <h2 class="display-5"><%= t('.title') %></h2>
+  <p><%= t('.subtitle') %></p>
+  <div class="divider"></div>
+  <section id="courses" class="courses">
+    <div class="article-new-button">
+      <% if user_signed_in? %>
+        <div class="link-button"><%= link_to t('.new_course'), new_course_path, class: "btn-article" %></div>
+      <% else %>
+        <div class="link-button"><%= link_to t('.login_button'), new_user_session_path, class: "btn-article" %></div>
+      <% end %>
+    </div>
+    <div class="course-show-grid">
+      <div class="course-container" data-aos="fade-up">
+        <div class="container-padding row" data-aos="zoom-in" data-aos-delay="100">
+          <%= render @courses %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,57 @@
+<% title t('.page_title') %>
+<div class="container-parent-wrapper">
+  <% if alert %>
+    <div class="alert alert-danger alert-bar">
+      <i class="fa fa-exclamation-circle"></i><%= alert %>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+      <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+        <img src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/code-development-monochromatic.png" alt="login" class="img-fluid mb-3 d-none d-md-block">
+        <h2><%= t('.h2') %></h2>
+        <p class="font-italic text-muted mb-0"><%= t('.p') %></p>
+      </div>
+
+      <div class="col-md-7 col-lg-6 ml-auto">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="row">
+            <div class="input-group col-lg-12 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-envelope text-muted"></i>
+                </span>
+              </div>
+              <%= f.email_field :email, label: t('.mail'), class: "form-control bg-white border-left-0 border-md", id: "email", placeholder: t('.mail')  %>
+            </div>
+
+            <div class="input-group col-lg-12 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-lock text-muted"></i>
+                </span>
+              </div>
+              <%= f.password_field :password, label: t('.password'), class: "form-control bg-white border-left-0 border-md", placeholder: t('.password') %>
+            </div>
+
+            <div class="form-group col-lg-12 mx-auto mb-0">
+              <%= f.submit t('.submit'), :class => 'btn btn-outline-dark btn-block py-2' %>
+            </div>
+
+            <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+              <div class="border-bottom w-100 ml-5"></div>
+              <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+              <div class="border-bottom w-100 mr-5"></div>
+            </div>
+
+            <div class="text-center w-100">
+              <p class="text-muted font-weight-bold"><%= t('.register') %><a href="<%= new_user_registration_path %>" class="text-primary ml-2"><%= t('.register2') %></a></p>
+              <p class="text-muted font-weight-bold"><%= t('.recovery') %><%= link_to t('.recovery2'), new_password_path('user'), class: "text-primary ml-2" %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

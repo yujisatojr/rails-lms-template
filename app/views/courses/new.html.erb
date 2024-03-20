@@ -1,0 +1,8 @@
+<% title t('.new_course_title') %>
+<div class="bd-dashed" id="article-box">
+    <div id="article-form-box">
+        <h1><%= t('.new_header') %></h1>
+        <%= render 'form' %>
+        <%= link_to t('.cancel'), courses_path, class: "btn btn-secondary" %>
+    </div>
+</div>

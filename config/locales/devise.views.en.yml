@@ -1,0 +1,68 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        current_password: "Current Password"
+        username: "Username"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        remember_me: "Remember Me"
+    models:
+      user: "User"
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "Resend Confirmation Instructions"
+    mailer:
+      confirmation_instructions:
+        action: "Confirm Account"
+        greeting: "Welcome, %{recipient}!"
+        instruction: "Complete email address confirmation with the following link:"
+      reset_password_instructions:
+        action: "Change Password"
+        greeting: "Hello, %{recipient}!"
+        instruction: "Someone has requested a password reset. You can reset your password with the following link."
+        instruction_2: "If you did not request this, please ignore this email."
+        instruction_3: "Password will not be changed until you access the link above and set a new password."
+      unlock_instructions:
+        action: "Unlock Account"
+        greeting: "Hello, %{recipient}!"
+        instruction: "Click the link below to unlock your account."
+        message: "Your account is locked due to repeated login failures."
+    passwords:
+      edit:
+        change_my_password: "Change My Password"
+        change_your_password: "Change Your Password"
+        confirm_new_password: "Confirm New Password"
+        new_password: "New Password"
+      new:
+        forgot_your_password: "Forgot Your Password?"
+        send_me_reset_password_instructions: "Send Reset Password Instructions"
+    registrations:
+      edit:
+        are_you_sure: "Are you sure?"
+        cancel_my_account: "Cancel Account"
+        currently_waiting_confirmation_for_email: "Waiting for confirmation for %{email}"
+        leave_blank_if_you_don_t_want_to_change_it: "Leave it blank if you don't want to change it"
+        title: "Edit %{resource}"
+        unhappy: "I'm unhappy"
+        update: "Update"
+        we_need_your_current_password_to_confirm_your_changes: "To apply changes, enter your current password"
+      new:
+        sign_up: "Sign Up for an Account"
+    sessions:
+      new:
+        sign_in: "Log In"
+    shared:
+      links:
+        back: "Back"
+        didn_t_receive_confirmation_instructions: "Did not receive the account confirmation email?"
+        didn_t_receive_unlock_instructions: "Did not receive the account unlocking email?"
+        forgot_your_password: "Forgot Your Password?"
+        sign_in: "Log In"
+        sign_in_with_provider: "Log In with %{provider}"
+        sign_up: "Sign Up for an Account"
+    unlocks:
+      new:
+        resend_unlock_instructions: "Resend Account Unlocking Instructions"

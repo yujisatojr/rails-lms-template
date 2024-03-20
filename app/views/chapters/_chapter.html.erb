@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <li>
+    <div class="curriculum-list-box">
+      <%= link_to_unless_current truncate(chapter.title, length: 30), course_chapter_path(@course, chapter), class: "font-weight-bold text-dark" %>
+    </div>
+    <span> <%= chapter.length %></span>
+  </li>
+<% else %>
+  <li>
+    <div class="curriculum-list-box text-fadeout">
+      <%= truncate(chapter.title, length: 30) %>
+    </div>
+    <span><i class="fa fa-lock"></i></span>
+  </li>
+<% end %>

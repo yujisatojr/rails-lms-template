@@ -1,0 +1,97 @@
+<% title t('.page_title') %>
+<div class="login-form-wrapper">
+  <div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+      <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+        <img src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/code-development-monochromatic.png" alt="sign up" class="img-fluid mb-3 d-none d-md-block">
+        <h2><%= t('.h2') %></h2>
+        <p class="font-italic text-muted mb-0"><%= t('.p') %></p>
+      </div>
+
+      <div class="col-md-7 col-lg-6 ml-auto">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="row">
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-user text-muted"></i>
+                </span>
+              </div>
+              <%= f.text_field :lastname, label: t('.last_name_label'), class: "form-control bg-white border-left-0 border-md", id: "firstName", placeholder: t('.last') %>
+            </div>
+
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-user text-muted"></i>
+                </span>
+              </div>
+              <%= f.text_field :firstname, label: t('.first_name_label'), class: "form-control bg-white border-left-0 border-md", id: "firstName", placeholder: t('.first') %>
+            </div>
+
+            <div class="input-group col-lg-12 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-envelope text-muted"></i>
+                </span>
+              </div>
+              <%= f.text_field :email, label: t('.email_label'), class: "form-control bg-white border-left-0 border-md", id: "email", placeholder: t('.mail')  %>
+            </div>
+
+            <div class="input-group col-lg-12 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-tag text-muted"></i>
+                </span>
+              </div>
+              <%= f.text_field :username, label: t('.username_label'), class: "form-control bg-white border-left-0 border-md", id: "username", placeholder: t('.username') %>
+            </div>
+
+            <div class="input-group col-lg-12 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-briefcase text-muted"></i>
+                </span>
+              </div>
+              <%= f.select(:occupation, User.occupations.keys, {}, { :class => 'form-control custom-select bg-white border-left-0 border-md' }) %>
+            </div>
+
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-lock text-muted"></i>
+                </span>
+              </div>
+              <%= f.password_field :password, label: t('.password_label'), class: "form-control bg-white border-left-0 border-md", placeholder: t('.password') %>
+            </div>
+
+            <div class="input-group col-lg-6 mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                  <i class="fa fa-lock text-muted"></i>
+                </span>
+              </div>
+              <%= f.password_field :password_confirmation, label: t('.password_confirmation_label'), class: "form-control bg-white border-left-0 border-md", placeholder: t('.confirm') %>
+            </div>
+
+            <div class="form-group col-lg-12 mx-auto mb-0">
+              <p id="agree-to-terms"><%= t('.agree_to_terms_text') %></p>
+              <%= f.submit t('.submit_button_text'), :class => 'btn btn-outline-dark btn-block py-2' %>
+            </div>
+
+            <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+              <div class="border-bottom w-100 ml-5"></div>
+              <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+              <div class="border-bottom w-100 mr-5"></div>
+            </div>
+
+            <div class="text-center w-100">
+              <p class="text-muted font-weight-bold"><%= link_to t('.login_link_text'), new_user_session_path %></a></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

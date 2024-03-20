@@ -1,0 +1,8 @@
+<% title t('.edit_title') %>
+<div class="bd-dashed" id="article-box">
+    <div id="article-form-box">
+        <h1><%= t('.edit_title') %></h1>
+        <%= render 'form', chapter: @chapter %>
+        <%= link_to t('.cancel_button'), @course, class: "btn btn-secondary" %>
+    </div>
+</div>

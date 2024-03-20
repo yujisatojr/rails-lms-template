@@ -1,0 +1,30 @@
+<div class="d-flex pt-3">
+  <img class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false">
+  <p class="pb-3 mb-0 small lh-sm border-bottom">
+    <strong class="d-block text-gray-dark">@<%= comment.user_name %> - 
+      <% if comment.updated_at.today? %>
+        <%= time_ago_in_words(comment.updated_at) %> ago
+      <% else %>
+      <%= comment.updated_at.strftime("%Y-%m-%d") %>
+      <% end %>
+    </strong>
+    <%= comment.body %>
+    <strong class="d-block text-gray-dark icons">
+    <% if user_signed_in? %>
+      <%= link_to "", new_article_comment_path(@article, parent_id: comment.id), remote: true, class: 'fa fa-reply' %>
+    <% end %>
+      <% if current_user && current_user.role == 'admin' %>
+        <%= link_to "", edit_article_comment_path(@article, comment), class: 'fa fa-edit' %>
+        <%= link_to "", article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }, class: 'fa fa-trash' %>
+      <% end %>
+    </strong>
+  </p>
+</div>
+<div id="reply-form-<%= comment.id %>"></div>
+<% if comment.replies.any? %>
+  <% comment.replies.each do |reply| %>
+    <div class="ml-5">
+      <%= render reply %>
+    </div>
+  <% end %>
+<% end %>

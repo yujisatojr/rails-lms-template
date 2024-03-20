@@ -1,0 +1,3 @@
+<%= reply.body %>
+
+<%= link_to 'reply', new_article_comment_path(@article, parent_id: reply.id), remote: true, class: 'd-block' %>

@@ -1,0 +1,10 @@
+<div class="card-body">
+  <%= form_with(model: [@article, @comment]) do |f| %>
+    <%= f.hidden_field :parent_id %>
+    <div class="form-group">
+      <%= f.text_area :body, class: 'form-control', placeholder: t('.placeholder', default: 'Enter your comment here.') %>
+    </div>
+    <%= f.submit t('.submit', default: 'Submit'), class: 'btn btn-outline-dark' %>
+    <%= link_to t('.cancel', default: 'Cancel'), article_path(@article), class: 'btn btn-secondary' %>
+  <% end %>
+</div>

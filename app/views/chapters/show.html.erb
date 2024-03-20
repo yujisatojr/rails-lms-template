@@ -1,0 +1,101 @@
+<% title @chapter.title, false %>
+<% total_rating = 0 %>
+<% average_rating = 0 %>
+<% if @chapter.course.posts.count > 0 %>
+  <% @chapter.course.posts.each do |p| %>
+    <% total_rating = total_rating + p.rating %>
+  <% end %>
+  <% average_rating = total_rating / @chapter.course.posts.count %>
+<% end %>
+<% average_rating = average_rating.round %>
+
+<div class="page-content">
+  <div class="content-block">
+    <div class="section-area section-sp1">
+      <div class="course-detail-container">
+        <div class="row d-flex flex-row-reverse">
+          <div class="price-course-sidebar chapter_sidebar_responsive col-sm-12 m-b30">
+            <div class="course-detail-bx bg-white bd-dashed">
+              <div class="course-price">
+                <h3><i class="fa fa-play-circle"></i> <%= @chapter.course.title %></h3>
+              </div>
+              <div class="course-buy-now text-center">
+              </div>
+              <div class="teacher-bx">
+                <div class="teacher-info">
+                  <div class="teacher-thumb">
+                    <img class="teacher-thumb" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png" alt="instructor circle icon"/>
+                  </div>
+                  <div class="teacher-name">
+                    <h5><%= @chapter.course.author %></h5>
+                    <span><%= t('.section_header_1') %></span>
+                  </div>
+                </div>
+              </div>
+              <div class="cours-more-info">
+                <div class="review">
+                  <span><%= @chapter.course.posts.count %> Reviews</span>
+                  <ul class="cours-star">
+                    <% (1..5).each do |i| %>
+                      <li class="<%= 'active' if i <= average_rating %>"><i class="fa fa-star"></i></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+              <div class="course-info-list scroll-page">
+                <ul class="navbar">
+                  <li><a class="nav-link" href="#overview"><i class="ti-zip"></i><%= t('.course_info_1') %></a></li>
+                  <li><a class="nav-link" href="#curriculum"><i class="ti-bookmark-alt"></i><%= t('.course_info_2') %></a></li>
+                  <li><a class="nav-link" href="#instructor"><i class="ti-user"></i><%= t('.course_info_3') %></a></li>
+                  <li><a class="nav-link" href="#"><i class="ti-comments"></i><%= t('.course_info_4') %></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="split-column col-md-8 col-sm-12 bg-white bd-dashed">
+            <div class="courses-post">
+              <div class="ttr-post-info">
+                <div class="ttr-post-title" id="overview">
+                  <h2 class="post-title"><%= @chapter.title %></h2>
+                </div>
+                <div class="ttr-post-text">
+                  <p><%= @chapter.body %></p>
+                </div>
+              </div>
+            </div>
+            <div class="m-b30" id="curriculum">
+              <h4><%= t('.section_header_2') %></h4>
+              <ul class="curriculum-list">
+                <li>
+                  <ul>
+                    <% sorted = @chapter.course.chapters.sort_by(&:created_at) %>
+                    <%= render sorted %>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="courese-overview" id="overview">
+            </div>
+            <div class="" id="instructor">
+              <h4><%= t('.section_header_3') %></h4>
+              <div class="instructor-bx">
+                <div class="instructor-author">
+                  <img class="instructor-author" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png" alt="instructor circle icon">
+                </div>
+                <div class="instructor-info">
+                  <span class="font-weight-bold"><%= t('.section_header_1') %></span>
+                  <h6><%= @chapter.course.author %></h6>
+                  <p class="m-b0"><%= @chapter.course.author_info %></p>
+                </div>
+              </div>
+            </div>
+            <div class="chapter-button-links">
+              <%= link_to t('chapters.form.form_edit'), edit_course_chapter_path(@course, @chapter), class: "btn btn-sm btn-outline-secondary" %> 
+              <%= link_to t('chapters.form.form_delete'), course_chapter_path(@course, @chapter), method: :delete, data: { confirm: t('chapters.form.form_confirm') }, class: "btn btn-sm btn-outline-secondary" %> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

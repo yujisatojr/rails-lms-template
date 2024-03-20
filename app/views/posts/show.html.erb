@@ -1,0 +1,13 @@
+<% title t('posts.show.comment_details_title') %>
+<div class="container-parent-wrapper">
+  <div class="course-container">
+    <h3><%= t('posts.show.post_show_title') %></h3>
+
+    <%= render @post %>
+    
+    <%= link_to t('posts.show.edit_link_text'), edit_course_post_path(@course, @post) %> |
+    <%= link_to t('posts.show.delete_link_text'), course_post_path(@course, @post), method: :delete, data: { confirm: t('posts.show.confirm_delete_message') } %> | 
+    <%= link_to t('posts.show.all_comments_link_text'), course_posts_path(@course) %> |
+    <%= link_to t('posts.show.back_link_text'), @course %>
+  </div>
+</div>

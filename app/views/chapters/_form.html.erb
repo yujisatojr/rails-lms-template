@@ -1,0 +1,10 @@
+<%= bootstrap_form_with(model: [@course, @chapter], local: true,
+    label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+    <%= f.alert_message t('.form_message'), error_summary: false %>
+    <%= f.text_field :title, label: t('.form_title'), placeholder: t('chapters.form.title_placeholder') %>
+    <%= f.text_area :body, label: t('.form_body'), placeholder: t('chapters.form.body_placeholder'), class: 'form-control custom-desc-field' %>
+    <%= f.number_field :length, label: t('.form_length'), placeholder: t('chapters.form.length_placeholder') %>
+    <%= f.form_group do %>
+        <%= f.primary @chapter.persisted? ? t('.form_update') : t('.form_submit'), class: "btn btn-outline-dark" %>
+    <% end %>
+<% end %>

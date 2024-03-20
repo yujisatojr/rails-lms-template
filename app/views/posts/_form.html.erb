@@ -1,0 +1,12 @@
+<div>
+  <%= bootstrap_form_with(model: [@course, @post], local: true,
+      layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+      <%= f.alert_message t('.error_message'), error_summary: false %>
+      <%= f.text_field :title, label: t('posts.form.title_label'), placeholder: t('posts.form.title_placeholder') %>
+      <%= f.text_area :body, label: t('posts.form.body_label'), placeholder: t('posts.form.body_placeholder') %>
+      <%= f.select(:rating, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], label: t('posts.form.rating_label'), include_blank: "-") %>
+      <%= f.form_group do %>
+          <%= f.primary @post.persisted? ? t('posts.form.update_button_text') : t('posts.form.submit_button_text'), class: "btn btn-outline-dark" %>
+      <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+<div class="mt-100 position-relative">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card mb-4 card-height hover-card-effect">
+        <div class="card-header">
+          <div class="media flex-wrap w-100 align-items-center">
+            <%= image_tag("https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png", class: "d-block ui-w-40 rounded-circle", alt: "profile-img", style: "width:62px;height:62px;") %>
+            <div class="media-body ml-3">
+              <%= link_to_unless_current(truncate(article.title, length: 40), article, class: "text-dark stretched-link") %>
+              <div class="text-muted small">Author: <a href="#"><%= article.user_name %></a></div>
+            </div>
+            <div class="text-muted small ml-3">
+
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p><%= truncate(article.body, length: 55) %></p>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>

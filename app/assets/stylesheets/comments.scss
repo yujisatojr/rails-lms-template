@@ -1,0 +1,80 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.course #comment {
+    float: right;
+    padding-right: 10px;
+}
+
+.comment-body {
+    display: grid;
+    grid-template-areas: 'left right';
+    grid-template-columns: 5% 90%;
+}
+
+.course_comment {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#comment-box {
+    position: relative;
+    margin: 5% auto;
+    height: 400px;
+    width: 700px;
+    background: #fff;
+    opacity: 0.95;
+    border-radius: 30px;
+}
+
+.course_comment_form {
+    padding-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
+
+.course-comment-title {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.comments-bx {
+    margin-left: auto;
+    color: #000;
+}
+
+.comments-bx i {
+    margin-right: 5px;
+}
+
+.course_comment .media-body {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .course_comment {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .course_comment_form {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .footer .copyright-mark {
+        font-size: 0.5rem;
+    }
+
+    .post {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .course-comment-title {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}

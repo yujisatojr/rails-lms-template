@@ -1,0 +1,13 @@
+<%= bootstrap_form_with(model: @course, local: true) do |f| %>
+  <%= f.alert_message t('.alert-message', default: "Please fix the errors below"), error_summary: false %>
+  <%= f.text_field :title, label: t('.title'), placeholder: t('courses.form.placeholder_title') %>
+  <%= f.text_field :author, label: t('.author'), placeholder: t('courses.form.placeholder_author') %>
+  <%= f.text_field :author_info, label: t('.author_info'), placeholder: t('courses.form.placeholder_author_info') %>
+  <%= f.text_field :desc, label: t('.desc'), placeholder: t('courses.form.placeholder_desc') %>
+  <%= f.text_area :body, label: t('.body'), placeholder: t('courses.form.placeholder_body'), class: 'form-control custom-desc-field' %>
+  <%= f.number_field :length, label: t('.length'), placeholder: t('courses.form.placeholder_length') %>
+  <%= f.select :difficulty, ["Beginner", "Intermediate", "Advanced"], { selected: "Beginner" }, { label: t('.difficulty'), class: 'form-control' } %>
+  <%= f.form_group do %>
+    <%= f.primary @course.persisted? ? t('.submit') : t('.create'), class: "btn btn-outline-dark" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,252 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.article {
+    border-radius: 5px;
+    overflow: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.article .article-title {
+    padding: 15px 0 20px;
+}
+
+.article .article-title h6 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.article .article-title h6 a {
+    text-transform: uppercase;
+    color: #743089;
+    border-bottom: 3px solid #743089;
+}
+
+.article .article-title h2 {
+    font-size: 2rem;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.article .article-title .media {
+    padding-top: 15px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 20px;
+}
+
+.article .article-title .media .avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.article .article-title .media .media-body {
+    padding-left: 8px;
+}
+
+.article .article-title .media .media-body label {
+    font-weight: 600;
+    color: #743089;
+    margin: 0;
+}
+
+.article .article-title .media .media-body span {
+    display: block;
+    font-size: 12px;
+}
+
+.article .article-content h1,
+.article .article-content h2,
+.article .article-content h3,
+.article .article-content h4,
+.article .article-content h5,
+.article .article-content h6 {
+    color: #20247b;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.article .article-content blockquote {
+    max-width: 600px;
+    padding: 15px 0 30px 0;
+    margin: 0;
+}
+
+.article .article-content blockquote p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fc5356;
+    margin: 0;
+}
+
+.article .article-content blockquote .blockquote-footer {
+    color: #20247b;
+    font-size: 16px;
+}
+
+.article-new-button {
+    height: 80px;
+    width: 100%;
+}
+
+.article-new-button a {
+    float: left;
+    color: #fff;
+    background: #743089;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.article-new-button a:hover {
+    background-color: #4e9cd4;
+    text-decoration: none;
+}
+
+.new-article-form {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.article-comment {
+    box-shadow: 0 0 30px rgba(31, 45, 61, .125);
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+}
+
+.article-comment h4 {
+    color: #20247b;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.article-container {
+    padding-bottom: 5%;
+    padding-right: 5%;
+}
+
+#article-box {
+    position: relative;
+    margin: 5% auto;
+    width: 700px;
+    background: #fff;
+    opacity: 0.95;
+}
+
+#article-form-box {
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 100%;
+}
+
+#article-form-box h1 {
+    margin-bottom: 15px;
+}
+
+#article-show-grid {
+    display: grid;
+    grid-template-areas: 'left right';
+    grid-template-columns: 70% 30%;
+}
+
+.article-show-sidebar {
+    grid-area: right;
+}
+
+.article-show-sidebar {
+    padding-top: 15%;
+    padding-right: 50px;
+}
+
+.article-container .mb-4 {
+    font-weight: 600;
+}
+
+.article-comment-form {
+    padding-top: 30px;
+}
+
+.article-comment-form a:hover {
+    text-decoration: none;
+}
+
+.btn-article {
+    padding: 10px 25px !important;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .meta {
+        display: none;
+    }
+
+    .responsive-wrapper {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .new-article-form {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .card-height {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 874px) {
+    .col-md-8-article {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-md-4-article {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .article-side-bar {
+        display: none;
+    }
+
+    #article-show-grid {
+        display: initial;
+    }
+
+    .container-sidebar {
+        display: none;
+    }
+
+    .article-show-sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .article-container {
+        padding-right: 0;
+    }
+
+    .mobile-article-1 {
+        max-width: 100%;
+    }
+
+    .mobile-article-2 {
+        max-width: 100%;
+    }
+
+    .footer .m-2 {
+        margin: 0;
+    }
+}

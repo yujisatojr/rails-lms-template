@@ -1,0 +1,8 @@
+<%= bootstrap_form_with(model: @article, local: true) do |f| %>
+  <%= f.alert_message t('.error_message'), error_summary: false %>
+  <%= f.text_field :title, label: t('.text_field_title'), placeholder: t('.text_field_placeholder') %>
+  <%= f.text_area :body, label: t('.text_area_title'), placeholder: t('.text_area_placeholder'), class: 'form-control custom-desc-field' %>
+  <%= f.form_group do %>
+    <%= f.primary @article.persisted? ? t('.submit_update') : t('.submit_post'), class: "btn btn-outline-dark" %>
+  <% end %>
+<% end %>

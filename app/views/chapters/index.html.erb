@@ -1,0 +1,9 @@
+<% title t('.title'), false %>
+<div class="container-parent-wrapper">
+    <div class="course-container">
+        <h3><%= @course.title %></h3>
+        <%= render @chapters %>
+        <p><%= link_to t('.back_button'), @course %></p>
+        <%= link_to t('.new_button'), new_course_chapter_path(@course), class: "btn btn-outline-dark" %>
+    </div>
+</div>

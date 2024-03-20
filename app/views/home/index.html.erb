@@ -1,0 +1,139 @@
+<% title t('.page_title') %>
+<div class="container-fluid home-grid hero home-background">
+  <div class="container">
+    <h1><%= t('.title').html_safe %></h1>
+    <p><%= t('.subtitle').html_safe %></p>
+    <div class="hero-btns">
+      <% if user_signed_in? %>
+        <a data-scroll href="<%= courses_path %>"><%= t('.button_1') %></a>
+      <% else %>
+        <a data-scroll href="<%= courses_path %>"><%= t('.button_2') %></a>
+      <% end %>
+    </div>
+  </div>
+  <div class="img-container">
+    <img src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/ar-monochromatic-58db3.png" alt="home" width="95%">
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $('a[href*=#]').on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+    });
+  });
+</script>
+
+<div class="features-list" id="section02">
+  <section class="section--primary">
+    <div class="container">
+      <h3><%= t('.feature_1') %></h3>
+      <br>
+      <div class="col-3 features">
+        <i class="fa fa-code"></i>
+        <p><%= t('.feature_2') %></p>
+        <p><%= t('.feature_3') %></p>
+      </div>
+      <div class="col-3 features">
+        <i class="fa fa-cubes"></i>
+        <p><%= t('.feature_4') %></p>
+        <p><%= t('.feature_5') %></p>
+      </div>
+      <div class="col-3 features">
+        <i class="fa fa-code-fork"></i>
+        <p><%= t('.feature_6') %></p>
+        <p><%= t('.feature_7') %></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="responsive-image">
+  <img loading="lazy" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/javascript-two-color.png" alt="About Us">
+</div>
+
+<div class="main-contents">
+  <table>
+    <tr>
+      <td id="mobile-none-image">
+        <img loading="lazy" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/javascript-two-color.png" class="inline-photo show-on-scroll" alt="About Us">
+      </td>
+      <td>
+        <h2 class="title"><%= t('.component_1_title') %></h2>
+        <p><%= t('.component_1_subtitle') %></p>
+        <div class="link-button button-mt"><%= link_to t('.component_1_button'), about_path, class: "about-button" %></div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id="container-two">
+  <div class="about" id="about">
+    <div class="mockup-content">
+      <div class="stat">
+        <h2><%= t('.component_2_title') %></h2>
+        <p><%= t('.component_2_subtitle') %></p>
+        <div class="link-button button-mt"><%= link_to t('.component_2_button'), articles_path, class: "about-button" %></div>
+      </div>
+      <div class="mockup-img">
+        <img src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/online-lesson-two-color.png" alt="mockup" width="85%">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <%= image_tag "https://app-data-vault.s3.us-west-2.amazonaws.com/testimonial_profile_1.png", alt: "circle-icon", class: "img-responsive quote-image" %>
+          <blockquote class="blockquote">
+            <small><%= t('.testimonial_1') %></small>
+            <footer class="blockquote-footer mt-2"> <%= t('.testimonial_1_job') %></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <%= image_tag "https://app-data-vault.s3.us-west-2.amazonaws.com/testimonial_profile_2.png", alt: "circle-icon", class: "img-responsive quote-image" %>
+          <blockquote class="blockquote">
+            <small><%= t('.testimonial_2') %></small>
+            <footer class="blockquote-footer mt-2"> <%= t('.testimonial_2_job') %></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <%= image_tag "https://app-data-vault.s3.us-west-2.amazonaws.com/testimonial_profile_3.png", alt: "circle-icon", class: "img-responsive quote-image" %>
+          <blockquote class="blockquote">
+            <small><%= t('.testimonial_3') %></small>
+            <footer class="blockquote-footer mt-2"> <%= t('.testimonial_3_job') %></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="fa fa-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="fa fa-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only"></span>
+  </a>
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+
+  <a class="left carousel-control" href="#carouselExampleIndicators" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+  <a class="right carousel-control" href="#carouselExampleIndicators" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+</div>

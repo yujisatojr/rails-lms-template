@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <title>ByteHub<%= " | " + yield(:title) unless yield(:title).blank? %></title>
+    <meta name="title" content="ByteHub">
+    <meta name="description" content="Join our coding community and start sharing your knowledge and skills with others!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="nav-left" id="logo">
+        <%= link_to (image_tag asset_path("logo.png", alt: "logo")), root_path %>
+      </div>
+      
+      <div class="nav-right">
+        <div class="topnav" id="myTopnav">
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i id="three-lines" class="fa fa-bars"></i></a>
+          <nav>
+            <%= link_to t('.nav_1'), root_path, class: "fade-in-animation trans-1" %>
+            <%= link_to t('.nav_2'), about_path, class: "fade-in-animation trans-2" %>
+            <%= link_to t('.nav_4'), courses_path, class: "fade-in-animation trans-3" %>
+            <%= link_to t('.nav_5'), articles_path, class: "fade-in-animation trans-4" %>
+            <% if user_signed_in? %>
+              <%= link_to t('.nav_6'), destroy_user_session_path, method: :delete, class: "fade-in-animation trans-5" %>
+              <%= link_to t('.nav_7'), users_show_path, class: "fade-in-animation trans-6" %>
+            <% else %>
+              <%= link_to t('.nav_8'), new_user_session_path, class: "fade-in-animation trans-5" %>
+              <%= link_to t('.nav_9'), new_user_registration_path, class: "fade-in-animation trans-6" %>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+    <div id="responsive-wrapper" class="hidden-wrapper">
+      <div id="wrapper">
+        <%= yield %>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <div class="container">
+        <div class="row pb-5">
+          <div class="col-xs-6 col-sm-3">
+            <a href="<%= root_path %>">
+                <%= image_tag asset_path("logo.png", alt: "logo"), class: "footer_logo" %>
+            </a>
+            <br>
+            <br>
+            <p class="color-light-20">
+              <%= t('.profile') %>
+            </p>
+          </div>
+
+          <div class="col-xs-6 col-sm-3">
+              <h6 class="my-2"><%= t('.footer_1') %></h6>
+              <ul class="list-unstyled list-light text-white">
+                <li><a href="#"><%= t('.footer_2') %></a></li>
+                <li><a href="#"><%= t('.footer_3') %></a></li>
+                <li><a href="#"><%= t('.footer_4') %></a></li>
+                <li><a href="#"><%= t('.footer_5') %></a></li>
+              </ul>
+          </div>
+
+          <br style="clear:both" class="hidden-sm-up">
+
+          <div class="col-xs-6 col-sm-3">
+            <h6 class="my-2"><%= t('.footer_6') %></h6>
+            <ul class="list-unstyled list-light">
+              <li><a href="#"><%= t('.footer_7') %></a></li>
+              <li><a href="#"><%= t('.footer_8') %></a></li>
+              <li><a href="#"><%= t('.footer_9') %></a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-sm-3">
+            <h6 class="my-2"><%= t('.footer_10') %></h6>
+            <ul class="list-unstyled list-light">
+              <li><a href="#"><%= t('.footer_11') %></a></li>
+              <li><a href="#"><%= t('.footer_12') %></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row f-flex justify-content-between" style="justify-content: space-between;">
+          <div class="text-xs-center text-left my-1">
+            <p class="mt-2  text-muted copyright-mark"><%= t('.footer_copyright') %></p>
+          </div>
+          <div class="col-md-4 text-xs-center text-lg-right my-1">
+            <div class="btn-container  mt-1 text-md-right text-sm-center">
+              <div class="mb-1 mr-3 align-self-right pt-0 d-inline-block float-right">
+                <a href="#" role="button" class=" btn-white p-2 m-2 btn btn-round btn-rised btn-icon x"><i class="fa fa-twitter fa-lg color-light" aria-hidden="true"></i></a>
+                <a href="#" role="button" class="btn-white p-2 m-2 btn btn-round btn-rised btn-icon "><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                <a href="#" role="button" class=" btn-white p-2 m-2 btn btn-round btn-rised btn-icon x"><i class="fa fa-instagram fa-lg color-light" aria-hidden="true"></i></a>
+                <a href="#" role="button" class=" btn-white p-2 m-2 btn btn-round btn-rised btn-icon x"><i class="fa fa-reddit fa-lg color-light" aria-hidden="true"></i></a>
+                <a href="#" role="button" class="btn-white p-2 m-2 btn btn-round btn-rised btn-icon  "><i class="fa fa-youtube-play fa-lg" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        var y = document.getElementById("responsive-wrapper");
+        var z = document.getElementById("three-lines");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+          y.className += " responsive-show";
+          z.className = "fa fa-times";
+        } else {
+          x.className = "topnav";
+          y.className = "hidden-wrapper";
+          z.className = "fa fa-bars";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<div class="col-md-12 p-3">
+  <div class="row course_responsive">
+    <div class="card-left">
+      <img class="img-fluid rounded-10" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/course-thumbnail.png">
+      <%= link_to_unless_current t('.button-txt', default: 'Enroll'), course, class: "btn btn-outline-dark btn-block course-button" %>
+    </div>
+    <div class="card-right">
+      <div class="card-block">
+        <h2 class="card-title"><%= truncate(course.title, length: 45) %></h2>
+        <p class="card-text text-justify"><%= truncate(course.desc, length: 140) %></p>
+        <ul>
+          <li><span class="fa fa-book" aria-hidden="true"></span> <%= course.chapters.count %> Lessons</li>
+          <li><span class="fa fa-calendar" aria-hidden="true"></span> <%= course.length.round %> minutes</li>
+          <li><span class="fa fa-signal" aria-hidden="true"></span> <%= course.difficulty %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

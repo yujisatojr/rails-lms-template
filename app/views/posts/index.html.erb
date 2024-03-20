@@ -1,0 +1,11 @@
+<% title t('posts.index.all_comments_title') %>
+<div class="container-parent-wrapper">
+  <div class="course-container">
+    <h3><%= @course.title %></h3>
+
+    <%= render @posts %>
+    
+    <p><%= link_to t('posts.index.back_link_text'), @course %></p>
+    <%= link_to t('posts.index.new_comment_button_text'), new_course_post_path(@course), class: "btn btn-outline-dark" %>
+  </div>
+</div>

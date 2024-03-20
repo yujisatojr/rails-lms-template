@@ -1,0 +1,189 @@
+<% title @course.title, false %>
+<% total_rating = 0 %>
+<% average_rating = 0 %>
+<% if @course.posts.count > 0 %>
+    <% @course.posts.each do |p| %>
+        <% total_rating = total_rating + p.rating %>
+    <% end %>
+    <% average_rating = total_rating / @course.posts.count %>
+<% end %>
+<% average_rating = average_rating.round %>
+
+<div class="page-content">
+  <div class="content-block">
+    <div class="section-area section-sp1">
+      <div class="course-detail-container">
+        <div class="row d-flex flex-row-reverse">
+          <div class="price-course-sidebar col-sm-12 m-b30">
+            <div class="course-detail-bx bg-white bd-dashed">
+              <div class="course-buy-now text-center">
+                <% if user_signed_in? %>
+                  <% if @course.chapters.count > 0 %>
+                    <div class="link-button button-mt">
+                      <%= link_to t('.start_learning', default: "Start Learning"), course_chapter_path(@course, @course.chapters.first), class: "about-button" %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <p><%= t('.login_message', default: "Login") %> <%= link_to t('.here', default: "here"), new_user_session_path %> <%= t('.to_start_course', default: "to start this course.") %></p>
+                <% end %>
+              </div>
+              <div class="teacher-bx">
+                <div class="teacher-info">
+                  <div class="teacher-thumb">
+                    <img class="teacher-thumb" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png" alt=""/>
+                  </div>
+                  <div class="teacher-name">
+                    <h5><%= @course.author %></h5>
+                    <span><%= t('.instructor', default: "Instructor") %></span>
+                  </div>
+                </div>
+              </div>
+              <div class="cours-more-info">
+                <div class="review">
+                  <span><%= @course.posts.count %> <%= t('.reviews', default: "Reviews") %></span>
+                  <ul class="cours-star">
+                    <% (1..5).each do |i| %>
+                      <li class="<%= 'active' if i <= average_rating %>"><i class="fa fa-star"></i></li>
+                    <% end %>
+                  </ul>
+                </div>
+                <div class="price categories">
+                  <span><%= t('.category', default: "Category") %></span>
+                  <p class="badge"><%= t('.programming', default: "Programming") %></p>
+                </div>
+              </div>
+              <div class="course-info-list scroll-page">
+                <ul class="navbar">
+                  <li><a class="nav-link" href="#overview"><i class="ti-zip"></i><%= t('.course_overview', default: "Course Overview") %></a></li>
+                  <li><a class="nav-link" href="#curriculum"><i class="ti-bookmark-alt"></i><%= t('.chapters', default: "Chapters") %></a></li>
+                  <li><a class="nav-link" href="#instructor"><i class="ti-user"></i><%= t('.instructor_info', default: "Instructor Info") %></a></li>
+                  <li><a class="nav-link" href="#reviews"><i class="ti-comments"></i><%= t('.feedback', default: "Feedback") %></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-column col-md-8 col-sm-12 bd-dashed bg-white">
+            <div class="courses-post">
+              <div class="ttr-post-media media-effect">
+                <img class="course-detail-img" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/course-thumbnail.png">
+              </div>
+              <div class="ttr-post-info">
+                <div class="ttr-post-title">
+                  <h2 class="post-title"><%= @course.title %></h2>
+                </div>
+                <div class="ttr-post-text">
+                  <p><%= @course.desc %></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="courese-overview" id="overview">
+              <h4><%= t('.overview', default: "Overview") %></h4>
+              <div class="row">
+                <div class="col-md-12 col-lg-4">
+                  <ul class="course-features">
+                    <li><i class="ti-book"></i> <span class="label"><%= t('.chapters', default: "Chapters") %></span> <span class="value"><%= @course.chapters.count %></span></li>
+                    <li><i class="ti-time"></i> <span class="label"><%= t('.time', default: "Time") %></span> <span class="value"><% if @course.length %><%= @course.length.round %><% end %> <%= t('.minutes', default: "minutes") %></span></li>
+                    <li><i class="ti-stats-up"></i> <span class="label"><%= t('.difficulty', default: "Difficulty") %></span> <span class="value"><%= t('.beginner', default: "Beginner") %></span></li>
+                    <li><i class="ti-check-box"></i> <span class="label"><%= t('.last_updated', default: "Last Updated") %></span> <span class="value">
+                      <% if @course.updated_at.today? %>
+                        <%= time_ago_in_words(@course.updated_at) %> ago
+                      <% else %>
+                        <%= @course.updated_at.strftime("%Y-%m-%d") %>
+                      <% end %>
+                    </span></li>
+                  </ul>
+                </div>
+                <div class="col-md-12 col-lg-8">
+                  <h5 class="m-b5"><%= t('.details', default: "Details") %></h5>
+                  <p><% if @course.body %><%= @course.body %><% end %></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-b30" id="curriculum">
+              <h4><%= t('.chapters', default: "Chapters") %></h4>
+              <ul class="curriculum-list">
+                <li>
+                  <ul>
+                    <% sorted = @course.chapters.sort_by(&:created_at) %>
+                    <%= render sorted %>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="" id="instructor">
+              <h4><%= t('.instructor_info', default: "Instructor Info") %></h4>
+              <div class="instructor-bx">
+                <div class="instructor-author">
+                  <img class="instructor-author" src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png" alt="">
+                </div>
+                <div class="instructor-info">
+                  <span class="font-weight-bold"><%= t('.instructor', default: "Instructor") %></span>
+                  <h6><%= @course.author %></h6>
+                  <p class="m-b0"><%= @course.author_info %></p>
+                </div>
+              </div>
+            </div>
+
+            <div id="reviews">
+              <h4><%= t('.feedback', default: "Feedback") %></h4>
+              <div class="review-bx">
+                <div class="all-review">
+                  <h2 class="rating-type"><%= @course.posts.count %></h2>
+                  <ul class="cours-star">
+                    <% (0..5).each do |i| %>
+                      <li class="<%= 'active' if i <= average_rating %>"><i class="fa fa-star"></i></li>
+                    <% end %>
+                  </ul>
+                  <span><%= @course.posts.count %> <%= t('.reviews', default: "Reviews") %></span>
+                </div>
+                <div class="review-bar">
+                  <!-- Ratings bar for each star level -->
+                  <% (1..5).each do |i| %>
+                    <div class="bar-bx">
+                      <div class="side">
+                        <div><%= t('.star', default: "Star") %> <%= i %></div>
+                      </div>
+                      <div class="middle">
+                        <div class="bar-container">
+                          <% star_count = @course.posts.where(rating: i).count %>
+                          <% total_reviews = @course.posts.count %>
+                          <% percentage = total_reviews > 0 ? (star_count.to_f / total_reviews * 100).round : 0 %>
+                          <div class="bar" style="width:<%= percentage %>%"></div>
+                        </div>
+                      </div>
+                      <div class="side right">
+                        <div><%= star_count %></div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4><%= t('.post_comment', default: "Post a Comment") %></h4>
+              <div class="course_comment">
+                <%= render @course.posts %>
+                <% if user_signed_in? %>
+                  <%= render 'posts/form' %>
+                <% else %>
+                  <%= link_to t('.login_to_comment', default: "Login to comment"), new_user_session_path, class: "btn btn-outline-dark btn-block py-2" %>
+                <% end %>
+
+                <% if current_user %>
+                  <%= link_to t('.new_chapter', default: "New Chapter"), new_course_chapter_path(@course), class: "btn btn-sm btn-outline-secondary" %>
+                  <%= link_to t('.edit', default: "Edit"), edit_course_path(@course), class: "btn btn-sm btn-outline-secondary" %>
+                  <%= link_to t('.delete', default: "Delete"), @course, method: :delete, data: { confirm: "#{t('.confirm_delete', default: "Are you sure you want to delete this course?")}" }, class: "btn btn-sm btn-outline-secondary" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

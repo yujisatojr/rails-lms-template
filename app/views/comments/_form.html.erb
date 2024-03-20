@@ -1,0 +1,26 @@
+<%= bootstrap_form_with(model: [@article, @comment], local: true) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t('.error') %> <%= pluralize(@comment.errors.count, "error") %></h2>
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.text_area :body, label: t('.label'), id: "text-comment", placeholder: t('.placeholder') %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :article_id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :parent_id %>
+  </div>
+  <div class="actions">
+    <%= f.form_group do %>
+      <%= f.primary @comment.persisted? ? t('.update') : t('.post'), class: "btn btn-outline-dark" %>
+    <% end %>
+  </div>
+<% end %>

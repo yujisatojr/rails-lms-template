@@ -1,0 +1,55 @@
+<% title @article.title, false %>
+<div class="container-parent-wrapper">
+  <div id="article-show-grid">
+    <div class="article-container">
+
+      <article class="article rounded bg-white bd-dashed">
+        <div class="article-title">
+          <h2><%= @article.title %></h2>
+          <div class="media">
+            <div class="avatar">
+              <img src="https://app-data-vault.s3.us-west-2.amazonaws.com/img/user-circle-icon.png" width="45" height="45" alt="user icon">
+            </div>
+            <div class="media-body">
+              By <label> <%= @article.user_name %></label>
+              <span>
+                <% if @article.updated_at.today? %>
+                  <%= time_ago_in_words(@article.updated_at) %> ago
+                <% else %>
+                  <%= @article.updated_at.strftime("%Y-%m-%d") %>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="article-content">
+          <p style="white-space:pre-wrap"><%= @article.body %></p>
+        </div>
+        <% if current_user && current_user.id == @article.user_id %>
+          <%= link_to t('.edit_button'), edit_article_path(@article), class: 'btn btn-sm btn-outline-secondary' %>
+          <%= link_to t('.delete_button'), @article, method: :delete, data: {confirm: t('.confirm_message') }, class: 'btn btn-sm btn-outline-secondary' %>
+        <% end %>
+      </article>
+      <div class="my-3 p-3 rounded bg-white bd-dashed">
+        <% if @article.comments.count > 0 %>
+          <h6 class="border-bottom pb-2 mb-0"><%= t('.section_title') %></h6>
+          <% @article.comments.is_parent.each do |comment| %>
+            <%= render comment %>
+          <% end %>
+        <% end %>
+        <div class="article-comment-form">
+          <% if user_signed_in? %>
+            <%= render 'comments/form' %>
+          <% else %>
+            <a href="<%= new_user_session_path %>"><button class="btn btn-outline-dark btn-block py-2"><%= t('.button_text') %></button></a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="animate-box article-side-bar" data-animate-effect="fadeInRight">
+      <div>
+        <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4"></div>
+      </div>
+    </div>
+  </div>
+</div>

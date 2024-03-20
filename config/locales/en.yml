@@ -1,0 +1,357 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  layouts:
+    application:
+      nav_1: Home
+      nav_2: About
+      nav_3: Instructors
+      nav_4: Courses
+      nav_5: Forum
+      nav_6: Logout
+      nav_7: My Page
+      nav_8: Login
+      nav_9: Sign Up
+      profile: ByteHub is an online learning platform designed exclusively for engineers, providing a community to master programming skills and stay at the forefront of technology.
+      footer_1: Popular Courses
+      footer_2: Python
+      footer_3: JavaScript
+      footer_4: GoLang
+      footer_5: Rust
+      footer_6: Support
+      footer_7: Terms & Conditions
+      footer_8: Privacy
+      footer_9: Help Center
+      footer_10: Contact
+      footer_11: For Instructors
+      footer_12: Feedback
+      footer_copyright: ByteHub ©2024 | All Rights Reserved
+  home:
+    index:
+      page_title: Learn Programming Today!
+      title: Join Our <br/> Coding <br/> Community!
+      subtitle: Unleash your engineering skills and share <br/> the fun of coding with fellow enthusiasts.
+      button_1: Explore Courses
+      button_2: Enroll Now
+      feature_1: Why ByteHub?
+      feature_2: Adaptive Learning
+      feature_3: Tailored content adapts for optimal understanding. ByteHub's approach personalizes your journey, fostering mastery in programming skills at your pace.
+      feature_4: Interactive Labs
+      feature_5: Engage in hands_on coding with ByteHub's labs. Practical, immersive learning allows you to apply theory in real_world scenarios for enhanced comprehension.
+      feature_6: Expert Mentorship
+      feature_7: Access industry mentors at ByteHub. Connect with professionals for personalized guidance, gaining insights and refining skills for effective career navigation.
+      component_1_title: Extensive Catalogue
+      component_1_subtitle: Whether delving into the intricacies of established coding languages or embracing the latest frameworks, our platform offers a diverse range of resources to personalize your learning journey, ensuring you stay at the forefront of the ever-evolving tech landscape.
+      component_1_button: Learn More
+      component_2_title: Connect Learners & Teachers
+      component_2_subtitle: Fostering a dynamic community where aspiring engineers can engage with experienced instructors. Join this collaborative space to enhance your programming prowess through interactive sessions and personalized guidance, ensuring you stay ahead in the ever-evolving tech industry.
+      component_2_button: Ask Questions
+      course_card_3_button: Start Now
+      testimonial_1: "ByteHub is my go-to for staying ahead in tech. Its in-depth courses and practical exercises align with industry demands."
+      testimonial_1_job: Emma B.
+      testimonial_2: "With its user-friendly interface and bite sized lessons, I can learn programming at my own pace, fitting it seamlessly into my daily routine."
+      testimonial_2_job: Oliver S.
+      testimonial_3: "ByteHub is a game changer for student coders. Its flexible pacing and interactive courses make learning enjoyable and accessible."
+      testimonial_3_job: Mia D.
+    about:
+      page_title: About Us
+      title: Engineering Excellence, Byte by Byte
+      subtitle: Fostering innovation and expertise among engineers through personalized learning and expert mentorship.
+      button: Browse Catalog
+      content_1: Our mission is crystal clear, "Empower engineers and tech enthusiasts with the knowledge and skills needed to excel in our fast evolving digital landscape." Recognizing the limitations of traditional learning methods, we established ByteHub as a beacon for dynamic, personalized education, tailored to the unique needs of programming enthusiasts.
+      content_2: ByteHub stands out as a catalyst for innovation, committed to providing unparalleled learning experiences. Our adaptive platform tailors educational journeys to individual learning styles. Whether you're a novice entering the tech realm or a seasoned professional looking to augment your skill set, ByteHub offers a comprehensive suite of resources to elevate your programming prowess.
+      content_3: Central to our ethos is the belief that hands on experience is essential for genuine comprehension and mastery. ByteHub's curated interactive labs empower users to apply theoretical knowledge in practical, real world scenarios. This immersive approach not only reinforces learning but also instills confidence in tackling the complexities of programming with a focus on practical, applicable skills.
+    inactive_sign_up:
+      page_title: "Account Registration Completed"
+      thank_you_message: "Thank you for using our service!"
+      registration_complete_message: "Your temporal account registration is now complete! Please check your email inbox for detailed instructions on how to activate your account."
+    account_confirmed:
+      page_title: "Account Registration Completed"
+      congratulations_message: "Congratulations!"
+      registration_complete_message: "Your account registration is now complete! At ByteHub, we offer courses exclusive to our members. Welcome to the world of coding!"
+  courses:
+    index:
+      page_title: Courses
+      title: Courses
+      subtitle: Embark on a coding journey with our carefully crafted courses, offering a friendly and accessible guide for both beginners and skill advancement.
+      form_ph: Find Courses By Keywords
+      button_txt: Enroll
+      new_course: New Course
+      login_button: Login to Create
+    form:
+      title: Course Name
+      author: Instructor Name
+      author_info: Instructor Bio
+      desc: Short Description
+      body: Course Description
+      length: Duration (minutes)
+      difficulty: Difficulty
+      submit: Update Course
+      create: Create Course
+      placeholder_title: e.g. Introduction to Python Programming
+      placeholder_author: e.g. John Doe
+      placeholder_author_info: e.g. I am a first year CS student
+      placeholder_desc: e.g. Build your own website using Flask and Python
+      placeholder_body: e.g. Gain proficiency in programming fundamentals and data manipulation
+      placeholder_length: e.g. 10
+    new:
+      new_header: New Course
+    edit:
+      edit_header: Edit Course
+      edit_title: Edit Course
+      cancel: Cancel
+    show:
+      title: Course Title
+      start_learning: Start Learning
+      login_message: Login
+      here: here
+      to_start_course: to start this course.
+      instructor: Instructor
+      reviews: Reviews
+      category: Category
+      programming: Programming
+      course_overview: Course Overview
+      chapters: Chapters
+      instructor_info: Instructor Info
+      feedback: Feedback
+      overview: Overview
+      time: Time
+      minutes: minutes
+      difficulty: Difficulty
+      beginner: Beginner
+      last_updated: Last Updated
+      details: Details
+      course_outcomes: Course Outcomes
+      star: Star
+      post_comment: Post a Comment
+      login_to_comment: Login to comment
+      new_chapter: New Chapter
+      edit: Edit
+      delete: Delete
+      confirm_delete: Are you sure you want to delete this course?
+  chapters:
+    index:
+      title: All Chapters
+      back_button: Back
+      new_button: New Comment
+    new:
+      new_title: New Chapter
+      cancel_button: Cancel
+    edit:
+      edit_title: Edit Chapter
+      cancel_button: Cancel
+    form:
+      form_message: Please fix the errors below
+      form_title: Title
+      form_body: Description
+      form_length: Length (minutes)
+      form_attachment: Learning Resource Link
+      form_update: Update
+      form_submit: Post
+      form_edit: Edit
+      form_delete: Delete
+      form_confirm: Are you sure you want to delete this?
+      title_placeholder: e.g. Built-in data types
+      body_placeholder: e.g. This chapter explores the fundamentals of data types in Python.
+      length_placeholder: e.g. 10
+
+    show:
+      section_header_1: Instructor
+      section_header_2: Chapters
+      section_header_3: Instructor Information
+      course_info_1: Course Overview
+      course_info_2: Chapters
+      course_info_3: Instructor Information
+      course_info_4: Learning Resources
+  posts:
+    form:
+      title_label: "Title"
+      title_placeholder: "Enter the title"
+      body_label: "Body"
+      body_placeholder: "Enter the comment body"
+      rating_label: "Rating"
+      submit_button_text: "Submit"
+      update_button_text: "Update"
+    post:
+      posted_by_text: "Posted by:"
+      edit_link_text: "Edit"
+      delete_link_text: "Delete"
+      confirm_delete_message: "Are you sure?"
+    edit:
+      edit_comment_title: "Edit Comment"
+      edit_comment_cancel_link_text: "Cancel"
+    index:
+      all_comments_title: "All Comments"
+      back_link_text: "Back"
+      new_comment_button_text: "New Comment"
+    new:
+      new_post_title: "New Comment"
+      cancel_link_text: "Cancel"
+    show:
+      post_show_title: Comment
+      comment_details_title: "Comment Details"
+      edit_link_text: "Edit"
+      delete_link_text: "Delete"
+      confirm_delete_message: "Are you sure?"
+      all_comments_link_text: "All Comments"
+      back_link_text: "Back"
+  articles:
+    index:
+      page_title: Forum
+      title: Forum
+      subtitle: Join the Forum! This is a dynamic space for coding enthusiasts to post questions, share insights, and engage in discussions, fostering a collaborative community.
+      btn_1: Create a Post
+      btn_2: Login to Post
+    form:
+      error_message: The question was not posted due to the following errors.
+      text_field_title: Title
+      text_field_placeholder: Please enter the title
+      text_area_title: Question Details
+      text_area_placeholder: Provide details about your question or discussion topic. We are here to help!
+      submit_update: Update Content
+      submit_post: Post Question
+    edit:
+      edit_title: Edit Entry
+      cancel_button: Cancel
+    new:
+      new_title: New Entry
+    show:
+      edit_button: Edit
+      delete_button: Delete
+      back_button: Back
+      confirm_message: Are you sure?
+      section_title: Discussion
+      button_text: Log in to comment
+  comments:
+    form:
+      error: Oops! We encountered the following error(s) that need attention before we can save your information
+      label: Comment
+      placeholder: Enter your comment here
+      update: Update
+      post: Post
+      submit: Submit
+      cancel: Cancel
+    edit:
+      edit_title: Edit Comment
+    new:
+      new_title: New Comment
+  devise:
+    unlocks:
+      new:
+        resend_title: Resend unlock instructions
+    confirmations:
+      new:
+        title: Resend confirmation instructions
+    mailer:
+      email_body: Thank you for registering with ByteHub! To complete your registration, please click on the following link.
+      email_confirm: Click here to confirm your email address
+      email_changed_1: We're contacting you to notify you that your email is being changed to
+      email_changed_2: We're contacting you to notify you that your email has been changed to
+      pw_reset_1: We have received a request to reset the password for your ByteHub account.
+      pw_reset_2: If you wish to reset your password, please click on the following link and register a new password.
+      pw_reset_3: Reset Password
+      pw_reset_4: ※If you did not request a password reset, you can ignore this email.
+      unlock_1: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+      unlock_2: Click the link below to unlock your account.
+      unlock_3: Unlock my account
+    registrations:
+      edit:
+        edit_profile_title: "Edit Profile"
+        set_profile_picture_header: "Set Profile Picture"
+        save_changes_button: "Save Changes"
+      new:
+        page_title: Sign Up
+        h2: Sign Up
+        p: By creating an account, you will be able to access exclusive courses and receive newsletters about the latest course offerings.
+        last: Lastname
+        first: Firstname
+        mail: Email
+        username: Username
+        password: Password
+        confirm: Confirm Password
+        agree: By continuing, you agree to our Terms and Privacy Policy.
+        submit: Create an Account
+        login: Already have an account? Press the login button!
+        new_registration_title: "Sign Up"
+        new_registration_page_title: "Sign Up Page"
+        profile_picture_header: "Set Profile Picture"
+        last_name_label: "Last Name"
+        first_name_label: "First Name"
+        email_label: "Email Address"
+        username_label: "Username"
+        occupation_label: "Occupation"
+        password_label: "Password"
+        password_confirmation_label: "Password Confirmation"
+        agree_to_terms_text: "By signing in, I agree to the terms and conditions"
+        submit_button_text: "Sign Up"
+        login_link_text: "Log in"
+    sessions:
+      new:
+        login_title: "Login"
+        email_label: "Email Address"
+        password_label: "Password"
+        login_button_text: "Login"
+        already_registered_text: "If you haven't registered yet, create an account"
+        page_title: Login
+        h2: Login
+        p: By logging in, you will be able to access courses that are exclusive to your membership and post comments.
+        mail: Email address
+        password: Password
+        submit: Login
+        register: If you have not registered yet, 
+        register2: create an account.
+        recovery: Forgot your password? 
+        recovery2: recover your password.
+    passwords:
+      edit:
+        change_password_title: "Change Password"
+        change_password_instruction: "Please reset your password on this page."
+        password_label: "Password"
+        password_placeholder: "New Password"
+        confirm_password_label: "Confirm Password"
+        confirm_password_placeholder: "Confirm Password"
+        change_password_button: "Change Password"
+      new:
+        page_title: Reset Password
+        h2: Forgot your password?
+        p: Don't worry! You can reset your password from this page.
+        label: Email address
+        submit: Send a recovery email
+        register: If you have not registered yet, 
+        register2: create an account.
+  error_pages:
+    error_h1: An error has occurred
+  activerecord:
+    models:
+  attributes:
+    courses:
+      title: Course Title

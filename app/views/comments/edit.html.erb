@@ -1,0 +1,10 @@
+<% title t('.edit_title') %>
+<div class="signin-form-bg">
+    <div class="bd-dashed" id="comment-box">
+        <div id="article-form-box">
+            <h3><%= t('.edit_title') %></h3>
+            <%= render "form" %>
+            <%= link_to t('.cancel'), @article, class: "btn btn-secondary" %>
+        </div>
+    </div>
+</div>
