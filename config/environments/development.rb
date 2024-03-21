@@ -68,8 +68,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => 'smtp.example.com',
     :port                 => 587,
-    :user_name            => Rails.application.credentials.email[:username],
-    :password             => Rails.application.credentials.email[:password],
+    :user_name            => 'your_mailer_username',
+    :password             => 'your_mailer_password',
     :authentication       => :plain,
     :enable_starttls_auto => true
   }
