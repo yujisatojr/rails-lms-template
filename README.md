@@ -54,10 +54,8 @@ The ouput should start with something like `v14.21.3`
 3. Execute the following command to clone the repository:
 
     ```bash
-    git clone <repository_url>
+    git clone git@github.com:yujisatojr/rails-lms-template.git
     ```
-
-    Replace `<repository_url>` with the actual URL of this repository.
 
 4. Once the repository is cloned, navigate into the directory using the `cd` command:
 
@@ -103,22 +101,21 @@ It's essential to properly set up the `master.key` and `credentials.yml.enc` fil
     rails credentials:edit
     ```
 
-    Running this command will open an editor (usually Vi or Vim). You can exit immediately by pressing `:q`.
+    ```bash
+    # Use the command below to specify an editor. (e.g., use 'code' if your preferred editor is Visual Studio Code)
+    EDITOR="code --wait" bin/rails credentials:edit
+    ```
+
+    Save and close the editor.
 
 2. Setup Credentials
 
-    Once you have `master.key` in place, you can edit `credentials.yml.enc` to include your sensitive information.
-
-    ```bash
-    rails credentials:edit
-    ```
-
-    This command will open your default editor. You can add your credentials in YAML format like so:
+    Once you have opened up your editor, add your credentials in YAML format like so:
 
     ```yaml
     email:
-    username: your_email@example.com
-    password: your_password
+        username: your_email@example.com
+        password: your_password
     ```
 
     Save and close the editor.
@@ -155,8 +152,8 @@ This instruction outlines how to configure SMTP settings in specific files such 
     config.action_mailer.smtp_settings = {
         :address              => 'smtp.example.com',
         :port                 => 587,
-        :user_name            => 'your_username',
-        :password             => 'your_password',
+        :user_name            => 'your_mailer_username',
+        :password             => 'your_mailer_password',
         :authentication       => :plain,
         :enable_starttls_auto => true
     }
